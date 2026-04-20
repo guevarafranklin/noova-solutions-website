@@ -25,3 +25,9 @@ pnpm-debug.log*
 
 # brand handoff (reference only, not shipped)
 design_handoff_noova_brand/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
