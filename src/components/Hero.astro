@@ -3,8 +3,8 @@ interface Props {
   eyebrow?: string;
   headline: string;
   subheadline: string;
-  primaryCta?: { label: string; href: string };
-  secondaryCta?: { label: string; href: string };
+  primaryCta?: { label: string; href: string; external?: boolean };
+  secondaryCta?: { label: string; href: string; external?: boolean };
 }
 
 const { eyebrow, headline, subheadline, primaryCta, secondaryCta } = Astro.props;
@@ -20,10 +20,24 @@ const { eyebrow, headline, subheadline, primaryCta, secondaryCta } = Astro.props
       {(primaryCta || secondaryCta) && (
         <div class="hero-ctas">
           {primaryCta && (
-            <a href={primaryCta.href} class="btn btn-primary btn-lg">{primaryCta.label}</a>
+            <a
+              href={primaryCta.href}
+              class="btn btn-primary btn-lg"
+              target={primaryCta.external ? "_blank" : undefined}
+              rel={primaryCta.external ? "noopener noreferrer" : undefined}
+            >
+              {primaryCta.label}
+            </a>
           )}
           {secondaryCta && (
-            <a href={secondaryCta.href} class="btn btn-secondary btn-lg">{secondaryCta.label}</a>
+            <a
+              href={secondaryCta.href}
+              class="btn btn-secondary btn-lg"
+              target={secondaryCta.external ? "_blank" : undefined}
+              rel={secondaryCta.external ? "noopener noreferrer" : undefined}
+            >
+              {secondaryCta.label}
+            </a>
           )}
         </div>
       )}

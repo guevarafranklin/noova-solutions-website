@@ -2,8 +2,8 @@
 interface Props {
   title: string;
   description: string;
-  cta: { label: string; href: string };
-  icon?: "team" | "squad" | "ai";
+  cta: { label: string; href: string; external?: boolean };
+  icon?: "team" | "squad" | "ai" | "code" | "compass";
   highlight?: boolean;
 }
 
@@ -37,10 +37,30 @@ const { title, description, cta, icon = "team", highlight = false } = Astro.prop
         <path d="M3 12h2M19 12h2" />
       </svg>
     )}
+    {icon === "code" && (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 7l-5 5 5 5" />
+        <path d="M16 7l5 5-5 5" />
+        <path d="M14 4l-4 16" />
+      </svg>
+    )}
+    {icon === "compass" && (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M15 9l-2 5-5 2 2-5 5-2z" />
+      </svg>
+    )}
   </div>
   <h3>{title}</h3>
   <p>{description}</p>
-  <a href={cta.href} class="btn btn-link service-cta">{cta.label}</a>
+  <a
+    href={cta.href}
+    class="btn btn-link service-cta"
+    target={cta.external ? "_blank" : undefined}
+    rel={cta.external ? "noopener noreferrer" : undefined}
+  >
+    {cta.label}
+  </a>
 </article>
 
 <style>

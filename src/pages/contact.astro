@@ -1,0 +1,338 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+
+const title = "Contact — Noova Solutions";
+const description =
+  "Schedule a call with Noova Solutions. Book a 30-minute meeting to discuss staff augmentation, dedicated teams, or custom software development.";
+
+// Replace with real Google Calendar Appointment Scheduling URL when available
+const calendarEmbedUrl =
+  "https://calendar.google.com/calendar/appointments/schedules/YOUR_SCHEDULE_ID?gv=true";
+
+const meetingDetails = [
+  { label: "Duration", value: "30 minutes" },
+  { label: "Format", value: "Google Meet (link sent automatically after booking)" },
+  { label: "Available", value: "Monday to Friday" },
+  { label: "Timezone", value: "Central Standard Time (CST) — we adjust to yours" },
+];
+
+const faqs = [
+  {
+    q: "How quickly can you staff a developer?",
+    a: "Most roles are filled within 5-10 business days. For urgent needs, we can often present candidates within 48 hours.",
+  },
+  {
+    q: "Do you require long-term contracts?",
+    a: "No. We offer flexible engagement terms. You can start with a single developer on a month-to-month basis and scale from there.",
+  },
+  {
+    q: "What if a developer isn't the right fit?",
+    a: "We offer a replacement guarantee. If a team member isn't performing or isn't the right cultural fit, we'll find a replacement at no additional cost.",
+  },
+  {
+    q: "What is Comerciafy?",
+    a: "Comerciafy is our AI-powered sales and customer service agent for social media. It helps entrepreneurs handle customer conversations on WhatsApp, Instagram, and Facebook automatically. Learn more at comerciafy.com.",
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Hero
+    eyebrow="Contact"
+    headline="Let's start with a conversation."
+    subheadline="The best way to work together starts with a quick call. Pick a time that works for you and we'll talk through what you need — no commitment, no sales pitch, just a real conversation."
+  />
+
+  <section class="section" aria-labelledby="schedule-heading">
+    <div class="container schedule">
+      <div class="schedule-copy">
+        <span class="eyebrow">Schedule a Call</span>
+        <h2 id="schedule-heading">Book a meeting with us.</h2>
+        <p>
+          Choose a time on our calendar and we'll meet over Google Meet. Whether you're exploring
+          staff augmentation, want to discuss a project, or have questions about our services,
+          we'll use the time to understand your needs and figure out if we're a good fit.
+        </p>
+
+        <dl class="meeting-details">
+          {meetingDetails.map((item) => (
+            <div class="meeting-row">
+              <dt>{item.label}</dt>
+              <dd>{item.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div class="schedule-embed">
+        <div class="iframe-wrap">
+          <iframe
+            src={calendarEmbedUrl}
+            title="Book a call with Noova Solutions"
+            loading="lazy"
+            frameborder="0"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="other-ways-heading">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Other Ways to Reach Us</span>
+        <h2 id="other-ways-heading">Prefer to send a message first?</h2>
+      </header>
+
+      <div class="contact-grid">
+        <article class="contact-card">
+          <span class="contact-label">Email</span>
+          <h3>hello@noovasolutions.com</h3>
+          <p>We respond within 24 hours on business days.</p>
+          <a href="mailto:hello@noovasolutions.com" class="btn btn-link">Send an email →</a>
+        </article>
+
+        <article class="contact-card">
+          <span class="contact-label">Comerciafy</span>
+          <h3>Looking for our AI sales agent?</h3>
+          <p>
+            Visit comerciafy.com to learn more, see a demo, or get started.
+          </p>
+          <a
+            href="https://comerciafy.com"
+            class="btn btn-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Go to Comerciafy.com →
+          </a>
+        </article>
+
+        <article class="contact-card">
+          <span class="contact-label">LinkedIn</span>
+          <h3>Follow and message us.</h3>
+          <p>Follow us and send a message anytime.</p>
+          <a
+            href="https://www.linkedin.com/company/noova-solutions"
+            class="btn btn-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit our LinkedIn →
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="where-heading">
+    <div class="container where">
+      <div class="where-inner">
+        <span class="eyebrow">Where We Are</span>
+        <h2 id="where-heading">Based in El Salvador. Working across the Americas.</h2>
+        <p>
+          Our team operates from San Salvador, El Salvador — right in the heart of the Americas.
+          Our timezone (CST) overlaps with most US business hours, and our talent network spans
+          across Latin America. We work with clients in the United States, Mexico, Central
+          America, and South America.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="faq-heading">
+    <div class="container faq-section">
+      <header class="section-header">
+        <span class="eyebrow">FAQ</span>
+        <h2 id="faq-heading">Common questions.</h2>
+      </header>
+
+      <dl class="faq-list">
+        {faqs.map((item) => (
+          <div class="faq-item">
+            <dt>{item.q}</dt>
+            <dd>{item.a}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section-header {
+    max-width: 720px;
+    margin: 0 0 var(--space-12);
+  }
+
+  .section-header h2 { color: var(--color-ink); }
+
+  .schedule {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    gap: var(--space-14);
+    align-items: start;
+  }
+
+  .schedule-copy h2 {
+    color: var(--color-ink);
+    margin-bottom: var(--space-5);
+  }
+
+  .schedule-copy > p {
+    font-size: var(--fs-body-lg);
+    color: var(--color-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-8);
+    max-width: 52ch;
+  }
+
+  .meeting-details {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    border-top: 1px solid var(--color-line);
+    padding-top: var(--space-6);
+  }
+
+  .meeting-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: var(--space-4);
+    font-size: var(--fs-body);
+  }
+
+  .meeting-row dt {
+    font-size: var(--fs-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--color-muted);
+    font-weight: 500;
+    padding-top: 3px;
+  }
+
+  .meeting-row dd {
+    margin: 0;
+    color: var(--color-ink);
+    line-height: 1.5;
+  }
+
+  .schedule-embed {
+    background-color: var(--color-shell);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    padding: var(--space-2);
+  }
+
+  .iframe-wrap {
+    position: relative;
+    width: 100%;
+    min-height: 640px;
+    border-radius: var(--radius-tile);
+    overflow: hidden;
+    background-color: var(--color-paper);
+  }
+
+  .iframe-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+  }
+
+  .contact-card {
+    padding: 28px;
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact-label {
+    font-size: var(--fs-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--color-muted);
+    font-weight: 500;
+    margin-bottom: var(--space-4);
+  }
+
+  .contact-card h3 {
+    font-size: var(--fs-h4);
+    color: var(--color-ink);
+    margin-bottom: var(--space-3);
+    letter-spacing: -0.013em;
+    line-height: 1.2;
+  }
+
+  .contact-card p {
+    font-size: var(--fs-body);
+    color: var(--color-muted);
+    line-height: 1.55;
+    margin-bottom: var(--space-6);
+    flex: 1;
+  }
+
+  .where-inner {
+    max-width: 720px;
+  }
+
+  .where h2 { color: var(--color-ink); margin-bottom: var(--space-5); }
+
+  .where p {
+    font-size: var(--fs-body-lg);
+    color: var(--color-muted);
+    line-height: 1.65;
+    max-width: 60ch;
+  }
+
+  .faq-section { max-width: 820px; }
+
+  .faq-list {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-line-strong);
+  }
+
+  .faq-item {
+    padding: var(--space-6) 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .faq-item dt {
+    font-size: var(--fs-h4);
+    font-weight: 600;
+    color: var(--color-ink);
+    letter-spacing: -0.013em;
+    margin-bottom: var(--space-3);
+  }
+
+  .faq-item dd {
+    margin: 0;
+    font-size: var(--fs-body-lg);
+    color: var(--color-muted);
+    line-height: 1.6;
+    max-width: 64ch;
+  }
+
+  @media (max-width: 960px) {
+    .schedule { grid-template-columns: 1fr; gap: var(--space-10); }
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .meeting-row { grid-template-columns: 1fr; gap: var(--space-1); }
+    .iframe-wrap { min-height: 560px; }
+  }
+</style>

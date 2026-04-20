@@ -1,0 +1,327 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import CTA from "../components/CTA.astro";
+
+const title = "Work — Noova Solutions";
+const description =
+  "Learn about Noova Solutions — an IT outsourcing company from El Salvador helping US and Latin American businesses scale with the right talent and technology.";
+
+const values = [
+  {
+    title: "Transparency",
+    text: "No hidden fees, no vague timelines, no corporate double-speak. When we say two weeks, we mean two weeks. When there's a problem, we tell you — and we tell you how we're fixing it.",
+  },
+  {
+    title: "Quality Over Volume",
+    text: "We'd rather place 5 exceptional engineers than 50 mediocre ones. We'd rather Comerciafy handle 100 conversations perfectly than 1,000 poorly. Everything we do is measured by impact, not volume.",
+  },
+  {
+    title: "Partnership, Not Transactions",
+    text: "We don't just fill seats or sell subscriptions. We invest in understanding your business, your culture, and your goals. The people we place and the tools we build should make a real difference — if they don't, we've failed.",
+  },
+  {
+    title: "Build Things That Matter",
+    text: "We're not interested in building technology for technology's sake. Comerciafy exists because entrepreneurs were losing sales. Our staffing services exist because companies were wasting months on hiring. Every product and service we offer solves a real, specific problem.",
+  },
+];
+
+const team = [
+  {
+    name: "[Founder / CEO Name]",
+    title: "Founder & CEO",
+    bio: "[1-2 sentence bio about background, experience, and vision for Noova Solutions.]",
+  },
+  {
+    name: "[Team Member Name]",
+    title: "[Title]",
+    bio: "[1-2 sentence bio.]",
+  },
+  {
+    name: "[Team Member Name]",
+    title: "[Title]",
+    bio: "[1-2 sentence bio.]",
+  },
+];
+
+const stats = [
+  { value: "XX+", label: "Engineers placed with US companies" },
+  { value: "XX", label: "Countries across Latin America represented" },
+  { value: "10 days", label: "Average time to fill a role" },
+  { value: "XX%", label: "Client retention rate" },
+  { value: "XX+", label: "Comerciafy conversations handled monthly" },
+  { value: "San Salvador", label: "Home base, serving clients across the Americas" },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Hero
+    eyebrow="Work"
+    headline="We're Noova Solutions. We build teams and tools that move businesses forward."
+    subheadline="An IT outsourcing company from El Salvador helping US and Latin American businesses scale with the right talent and the right technology."
+    primaryCta={{ label: "Schedule a Call", href: "/contact" }}
+  />
+
+  <section class="section" aria-labelledby="story-heading">
+    <div class="container story">
+      <header class="story-header">
+        <span class="eyebrow">Our Story</span>
+        <h2 id="story-heading">How we got here.</h2>
+      </header>
+      <div class="story-body">
+        <p>
+          Noova Solutions started with a simple observation: US companies need great tech talent,
+          and Latin America has it in abundance. The gap was never about skill — it was about
+          access, trust, and structure. We set out to bridge that gap.
+        </p>
+        <p>
+          We began by connecting experienced developers and engineers with US teams that needed to
+          grow fast but didn't want to spend months hiring. We learned quickly that timezone
+          alignment, cultural compatibility, and rigorous vetting made the difference between a
+          contractor who checks boxes and a team member who truly contributes.
+        </p>
+        <p>
+          As we grew, we noticed something else. Small businesses and entrepreneurs across the
+          Americas were drowning in social media messages. They were losing real sales — not
+          because their products were bad, but because they simply couldn't respond fast enough. A
+          customer would ask about a product on Instagram at 10 PM and by 8 AM the next day,
+          they'd already bought from someone else.
+        </p>
+        <p>
+          That frustration became Comerciafy — an AI agent that handles customer conversations and
+          sales on social media, 24/7, in Spanish and English. It was born from a real problem we
+          watched real businesses struggle with, and it's now helping entrepreneurs across the
+          Americas sell more without hiring more.
+        </p>
+        <p>
+          Today, Noova Solutions operates at the intersection of talent and technology. We help
+          companies build their engineering teams and we build AI tools that help businesses
+          grow. Both sides of our company share the same mission: give businesses the resources
+          they need to move faster.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="values-heading">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">What We Believe</span>
+        <h2 id="values-heading">Our values.</h2>
+      </header>
+
+      <div class="values-grid">
+        {values.map((value) => (
+          <article class="value-card">
+            <h3>{value.title}</h3>
+            <p>{value.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="team-heading">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">The Team</span>
+        <h2 id="team-heading">The people behind Noova.</h2>
+        <p class="section-lead">
+          We're a small, experienced team based in San Salvador, El Salvador. Our leadership
+          combines deep expertise in software development, project management, and business
+          operations across Latin America and the United States. We've built products, led
+          engineering teams, and managed complex technical projects — so when we staff your team
+          or build your AI agent, we understand the work from the inside.
+        </p>
+      </header>
+
+      <div class="team-grid">
+        {team.map((member) => (
+          <article class="team-card">
+            <div class="team-avatar" aria-hidden="true">
+              <img src="/brand/nova-spark-primary.svg" alt="" width="64" height="64" />
+            </div>
+            <h3>{member.name}</h3>
+            <p class="team-title">{member.title}</p>
+            <p class="team-bio">{member.bio}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="stats-heading">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">By the Numbers</span>
+        <h2 id="stats-heading">Noova at a glance.</h2>
+      </header>
+
+      <dl class="stats-grid">
+        {stats.map((stat) => (
+          <div class="stat">
+            <dt>{stat.value}</dt>
+            <dd>{stat.label}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <CTA
+    headline="Want to work with us?"
+    subtext="Whether you need developers, a dedicated team, or want to learn about Comerciafy — let's start with a conversation."
+    cta={{ label: "Schedule a Call", href: "/contact" }}
+  />
+</BaseLayout>
+
+<style>
+  .section-header {
+    max-width: 720px;
+    margin: 0 0 var(--space-14);
+  }
+
+  .section-header h2 { color: var(--color-ink); }
+
+  .section-lead {
+    margin-top: var(--space-5);
+    font-size: var(--fs-body-lg);
+    color: var(--color-muted);
+    line-height: 1.6;
+    max-width: 64ch;
+  }
+
+  .story {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    gap: var(--space-14);
+  }
+
+  .story-header h2 { color: var(--color-ink); }
+
+  .story-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    max-width: 64ch;
+  }
+
+  .story-body p {
+    font-size: var(--fs-body-lg);
+    color: var(--color-ink);
+    line-height: 1.65;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+  }
+
+  .value-card {
+    padding: 32px;
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+  }
+
+  .value-card h3 {
+    font-size: var(--fs-h4);
+    color: var(--color-ink);
+    margin-bottom: var(--space-3);
+    letter-spacing: -0.013em;
+  }
+
+  .value-card p {
+    font-size: var(--fs-body-lg);
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .team-card {
+    padding: 28px;
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+  }
+
+  .team-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-shell);
+    display: grid;
+    place-items: center;
+    margin-bottom: var(--space-5);
+    overflow: hidden;
+  }
+
+  .team-avatar img { width: 48px; height: 48px; }
+
+  .team-card h3 {
+    font-size: var(--fs-h4);
+    color: var(--color-ink);
+    margin-bottom: var(--space-1);
+  }
+
+  .team-title {
+    font-size: var(--fs-body);
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+    font-weight: 500;
+  }
+
+  .team-bio {
+    font-size: var(--fs-body);
+    color: var(--color-muted);
+    line-height: 1.55;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8) var(--space-6);
+    margin: 0;
+    padding: 0;
+  }
+
+  .stat {
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-line-strong);
+  }
+
+  .stat dt {
+    font-family: var(--font-sans);
+    font-size: var(--fs-h3);
+    font-weight: 600;
+    color: var(--color-ink);
+    letter-spacing: -0.019em;
+    margin-bottom: var(--space-2);
+  }
+
+  .stat dd {
+    font-size: var(--fs-body);
+    color: var(--color-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @media (max-width: 860px) {
+    .story { grid-template-columns: 1fr; gap: var(--space-8); }
+    .values-grid { grid-template-columns: 1fr; }
+    .team-grid { grid-template-columns: 1fr 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .team-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .value-card { padding: 24px; }
+  }
+</style>

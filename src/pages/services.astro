@@ -1,0 +1,406 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import CTA from "../components/CTA.astro";
+
+const title = "Services — Noova Solutions";
+const description =
+  "Hire vetted developers, QA engineers, designers, and DevOps specialists from Latin America. Staff augmentation, dedicated teams, custom development, and IT consulting.";
+
+const staffRoles = [
+  "Frontend Developers (React, Vue, Angular)",
+  "Backend Developers (Node.js, Python, Java, Go, Ruby on Rails, .NET)",
+  "Full-Stack Developers",
+  "Mobile Developers (React Native, Flutter, Swift, Kotlin)",
+  "QA Engineers & Automation Specialists",
+  "DevOps & Cloud Engineers (AWS, GCP, Azure)",
+  "UI/UX Designers",
+  "Product Managers & Scrum Masters",
+  "Data Engineers & Analysts",
+];
+
+const staffIncludes = [
+  "Developers matched to your specific tech stack and seniority requirements",
+  "Full-time, dedicated professionals (not shared across clients)",
+  "Overlap with US business hours (CST, EST, PST compatible)",
+  "Ongoing support from Noova to ensure performance and retention",
+  "Replacement guarantee if a team member isn't the right fit",
+];
+
+const dedicatedSteps = [
+  { label: "Discovery", text: "We learn about your project, tech stack, team culture, and goals." },
+  { label: "Team Design", text: "We propose the right team composition based on your needs and budget." },
+  { label: "Selection", text: "You interview and approve every team member before they start." },
+  { label: "Integration", text: "The team onboards into your tools, processes, and workflows." },
+  { label: "Delivery", text: "Your team ships work. We handle HR, payroll, retention, and performance monitoring behind the scenes." },
+];
+
+const dedicatedBestFor = [
+  "Companies launching a new product and needing a full team fast",
+  "Startups that want to extend their engineering capacity without building an office",
+  "Organizations running parallel projects that need a self-contained squad",
+];
+
+const customBuilds = [
+  "Web applications (SaaS platforms, dashboards, portals)",
+  "Mobile apps (iOS, Android, cross-platform)",
+  "API development and third-party integrations",
+  "Internal tools and workflow automation",
+  "E-commerce platforms",
+  "MVP development for startups",
+];
+
+const consultingHelp = [
+  "Technology assessments and stack evaluations",
+  "Architecture reviews and recommendations",
+  "Cloud migration planning (AWS, GCP, Azure)",
+  "Technical due diligence for investors and acquisitions",
+  "Process improvement for development teams",
+  "CTO-as-a-Service for startups that need technical leadership without a full-time hire",
+];
+
+const process = [
+  {
+    title: "Book a Call",
+    text: "Schedule a 30-minute call through our calendar. Tell us about your project, team, and goals. No commitment, no pressure.",
+  },
+  {
+    title: "We Build a Plan",
+    text: "Within a few days, we present a proposal: the right people, the right structure, and a clear timeline. For staff augmentation, we share pre-vetted candidate profiles. For projects, we share a scope and estimate.",
+  },
+  {
+    title: "Your Team Starts Working",
+    text: "Once you approve, your new team members onboard and start contributing. We handle contracts, payroll, equipment, and logistics.",
+  },
+  {
+    title: "We Stay Involved",
+    text: "Noova doesn't disappear after placement. We monitor performance, gather feedback, handle retention, and make adjustments if something isn't working. You always have a direct line to us.",
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Hero
+    eyebrow="Services"
+    headline="Engineering talent that fits your team like it was always there."
+    subheadline="We provide IT staff augmentation, dedicated development teams, custom software, and strategic IT consulting for companies across the US and Latin America."
+    primaryCta={{ label: "Schedule a Call", href: "/contact" }}
+  />
+
+  <section class="section" id="staff-augmentation" aria-labelledby="staff-aug-heading">
+    <div class="container service-block">
+      <header class="service-block-header">
+        <span class="eyebrow">Staff Augmentation</span>
+        <h2 id="staff-aug-heading">Staff Augmentation</h2>
+        <p class="lead">
+          Hiring is slow. Projects don't wait. Our staff augmentation service places experienced
+          developers, designers, QA engineers, and DevOps specialists directly into your existing
+          team. They report to you, follow your processes, and use your tools — the only difference
+          is they're based in Latin America and cost significantly less than a local hire.
+        </p>
+      </header>
+
+      <div class="service-block-grid">
+        <div class="service-panel">
+          <h3>What you get</h3>
+          <ul class="check-list">
+            {staffIncludes.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div class="service-panel service-panel--shell">
+          <h3>Roles we staff</h3>
+          <ul class="bullet-list">
+            {staffRoles.map((role) => <li>{role}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="dedicated-teams" aria-labelledby="dedicated-heading">
+    <div class="container service-block">
+      <header class="service-block-header">
+        <span class="eyebrow">Dedicated Teams</span>
+        <h2 id="dedicated-heading">Dedicated Development Teams</h2>
+        <p class="lead">
+          Sometimes you don't need one developer — you need a whole team. We assemble
+          cross-functional squads tailored to your project: developers, QA, a project manager, and
+          optionally a designer or architect. The team is fully dedicated to your product, operates
+          as an extension of your company, and scales up or down as your needs evolve.
+        </p>
+      </header>
+
+      <div class="service-block-grid">
+        <div class="service-panel">
+          <h3>How it works</h3>
+          <ol class="step-list">
+            {dedicatedSteps.map((step, i) => (
+              <li>
+                <span class="step-num">{String(i + 1).padStart(2, "0")}</span>
+                <span class="step-body">
+                  <strong>{step.label}.</strong> {step.text}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
+        <div class="service-panel">
+          <h3>Best for</h3>
+          <ul class="check-list">
+            {dedicatedBestFor.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="custom-software" aria-labelledby="custom-heading">
+    <div class="container service-block">
+      <header class="service-block-header">
+        <span class="eyebrow">Custom Software</span>
+        <h2 id="custom-heading">Custom Software Development</h2>
+        <p class="lead">
+          Have a product idea but no team to build it? We take projects from concept to launch.
+          Whether it's a web application, a mobile app, an internal tool, or an API integration,
+          our teams design, develop, test, and deploy — while you focus on your business. We work
+          in agile sprints with clear deliverables, so you always know what's being built and when
+          it ships.
+        </p>
+      </header>
+
+      <div class="service-block-single">
+        <div class="service-panel service-panel--shell">
+          <h3>What we build</h3>
+          <ul class="bullet-list bullet-list--grid">
+            {customBuilds.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="it-consulting" aria-labelledby="consulting-heading">
+    <div class="container service-block">
+      <header class="service-block-header">
+        <span class="eyebrow">IT Consulting</span>
+        <h2 id="consulting-heading">IT Consulting & Strategy</h2>
+        <p class="lead">
+          Not sure what you need? That's fine — we can help you figure it out. Our consulting
+          services help businesses evaluate their current tech stack, identify bottlenecks, plan
+          migrations, define technical roadmaps, and make informed decisions about architecture and
+          infrastructure. We give you honest, practical advice — not 80-page reports that collect
+          dust.
+        </p>
+      </header>
+
+      <div class="service-block-single">
+        <div class="service-panel">
+          <h3>How we help</h3>
+          <ul class="check-list check-list--grid">
+            {consultingHelp.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="process-heading">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Our Process</span>
+        <h2 id="process-heading">How we work with you.</h2>
+      </header>
+
+      <ol class="process-grid">
+        {process.map((step, i) => (
+          <li class="process-step">
+            <span class="process-num">{String(i + 1).padStart(2, "0")}</span>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <CTA
+    headline="Let's find your next great developer."
+    subtext="Book a call and tell us what you're looking for. We'll take it from there."
+    cta={{ label: "Schedule a Call", href: "/contact" }}
+  />
+</BaseLayout>
+
+<style>
+  .section-header {
+    max-width: 720px;
+    margin: 0 0 var(--space-14);
+  }
+
+  .service-block + .service-block { margin-top: var(--space-16); }
+
+  .service-block-header {
+    max-width: 760px;
+    margin-bottom: var(--space-12);
+  }
+
+  .service-block-header h2 { color: var(--color-ink); margin-bottom: var(--space-5); }
+  .service-block-header .lead {
+    font-size: var(--fs-body-lg);
+    color: var(--color-muted);
+    line-height: 1.65;
+  }
+
+  .service-block-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+
+  .service-block-single { display: block; }
+
+  .service-panel {
+    padding: 32px;
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+  }
+
+  .service-panel--shell {
+    background-color: var(--color-shell);
+    border-color: transparent;
+  }
+
+  .section-alt .service-panel { background-color: var(--color-paper); }
+
+  .service-panel h3 {
+    font-size: var(--fs-h4);
+    color: var(--color-ink);
+    margin-bottom: var(--space-6);
+    letter-spacing: -0.013em;
+  }
+
+  .bullet-list,
+  .check-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .bullet-list li,
+  .check-list li {
+    font-size: var(--fs-body-lg);
+    color: var(--color-ink);
+    line-height: 1.55;
+    padding-left: var(--space-6);
+    position: relative;
+  }
+
+  .bullet-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 10px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+  }
+
+  .check-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23C75D3E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 8l3 3 7-7'/></svg>");
+    background-repeat: no-repeat;
+  }
+
+  .bullet-list--grid,
+  .check-list--grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3) var(--space-6);
+  }
+
+  .step-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .step-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4);
+    align-items: baseline;
+  }
+
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: var(--fs-meta);
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .step-body {
+    font-size: var(--fs-body-lg);
+    color: var(--color-ink);
+    line-height: 1.55;
+  }
+
+  .step-body strong { color: var(--color-ink); font-weight: 600; }
+
+  .process-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+
+  .process-step {
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-line-strong);
+  }
+
+  .process-num {
+    font-family: var(--font-mono);
+    font-size: var(--fs-meta);
+    color: var(--color-primary);
+    font-weight: 500;
+    display: block;
+    margin-bottom: var(--space-4);
+  }
+
+  .process-step h3 {
+    font-size: var(--fs-h4);
+    color: var(--color-ink);
+    margin-bottom: var(--space-3);
+  }
+
+  .process-step p {
+    font-size: var(--fs-body);
+    color: var(--color-muted);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 860px) {
+    .service-block-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 560px) {
+    .bullet-list--grid, .check-list--grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; }
+    .service-panel { padding: 24px; }
+  }
+</style>

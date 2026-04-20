@@ -20,9 +20,19 @@ const year = new Date().getFullYear();
       <h4>Quick Links</h4>
       <ul>
         <li><a href="/services">Services</a></li>
-        <li><a href="/comerciafy">Comerciafy</a></li>
-        <li><a href="/about">About Us</a></li>
+        <li><a href="/work">Work</a></li>
         <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li>
+          <a href="https://comerciafy.com" target="_blank" rel="noopener noreferrer">
+            Comerciafy.com ↗
+          </a>
+        </li>
       </ul>
     </div>
 
@@ -30,9 +40,9 @@ const year = new Date().getFullYear();
       <h4>Connect</h4>
       <ul>
         <li><a href="mailto:hello@noovasolutions.com">hello@noovasolutions.com</a></li>
-        <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://x.com" target="_blank" rel="noopener">X</a></li>
+        <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://x.com" target="_blank" rel="noopener noreferrer">X</a></li>
       </ul>
     </div>
   </div>
@@ -56,8 +66,8 @@ const year = new Date().getFullYear();
 
   .footer-inner {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: var(--space-12);
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: var(--space-10);
     padding-bottom: var(--space-12);
   }
 
@@ -68,10 +78,7 @@ const year = new Date().getFullYear();
     margin-top: var(--space-4);
   }
 
-  .footer-logo-link {
-    display: inline-flex;
-  }
-
+  .footer-logo-link { display: inline-flex; }
   .footer-logo-link img { height: 36px; width: auto; }
 
   .footer-col h4 {
@@ -130,7 +137,11 @@ const year = new Date().getFullYear();
 
   .footer-legal a:hover { color: var(--color-primary); }
 
-  @media (max-width: 720px) {
+  @media (max-width: 960px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 560px) {
     .footer-inner {
       grid-template-columns: 1fr;
       gap: var(--space-8);
