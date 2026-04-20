@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { title, description, canonical } = Astro.props;
-const siteUrl = Astro.site?.toString() ?? "https://noovasolutions.com";
+const siteUrl = Astro.site?.toString() ?? "https://noova.solutions";
 const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
 
 const schema = {
