@@ -1,0 +1,97 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+}
+
+const { title, description, canonical } = Astro.props;
+const siteUrl = Astro.site?.toString() ?? "https://noovasolutions.com";
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Noova Solutions",
+  description:
+    "IT staff augmentation and dedicated development teams from Latin America for US companies, plus Comerciafy — an AI sales agent for social media.",
+  url: siteUrl,
+  email: "hello@noovasolutions.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "San Salvador",
+    addressCountry: "SV",
+  },
+  areaServed: ["US", "Latin America"],
+  sameAs: [
+    "https://www.linkedin.com/company/noova-solutions",
+    "https://www.instagram.com/noovasolutions",
+    "https://x.com/noovasolutions",
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/brand/nova-spark-appicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Noova Solutions" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(schema)}
+    />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <Navbar />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <style is:global>
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 16px;
+        background: var(--color-primary);
+        color: var(--color-paper);
+        padding: 8px 16px;
+        border-radius: var(--radius-button);
+        z-index: 100;
+        font-weight: 500;
+      }
+      .skip-link:focus { top: 16px; color: var(--color-paper); }
+    </style>
+  </body>
+</html>

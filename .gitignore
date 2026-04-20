@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# brand handoff (reference only, not shipped)
+design_handoff_noova_brand/

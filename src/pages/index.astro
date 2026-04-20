@@ -1,17 +1,188 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import CTA from "../components/CTA.astro";
 
+const title = "Noova Solutions — Nearshore Tech Teams & Comerciafy AI Sales Agent";
+const description =
+  "Noova Solutions provides IT staff augmentation and dedicated development teams from Latin America for US companies. Plus Comerciafy — your AI sales agent for social media.";
+
+const services = [
+  {
+    title: "Staff Augmentation",
+    description:
+      "Need senior developers yesterday? We match you with vetted engineers from Latin America who work in your timezone, speak your language, and hit the ground running. No agencies, no freelancers — real team members.",
+    cta: { label: "Learn More →", href: "/services#staff-augmentation" },
+    icon: "team" as const,
+  },
+  {
+    title: "Dedicated Teams",
+    description:
+      "Not just extra hands — a complete squad. We build cross-functional teams (developers, QA, PM, designers) fully dedicated to your project, managed to your standards.",
+    cta: { label: "Learn More →", href: "/services#dedicated-teams" },
+    icon: "squad" as const,
+  },
+  {
+    title: "Comerciafy",
+    description:
+      "Your AI-powered sales and customer service agent for social media. Comerciafy helps entrepreneurs respond to customers, qualify leads, and close sales on WhatsApp, Instagram, and Facebook — 24/7, in Spanish and English.",
+    cta: { label: "Discover Comerciafy →", href: "/comerciafy" },
+    icon: "ai" as const,
+    highlight: true,
+  },
+];
+
+const features = [
+  {
+    title: "Timezone Aligned",
+    description:
+      "Your team works when you work. Our talent is based across Latin America, overlapping with US business hours so collaboration happens in real time, not overnight.",
+    icon: "clock" as const,
+  },
+  {
+    title: "Vetted Talent",
+    description:
+      "Every engineer goes through a rigorous technical and soft-skills evaluation. We don't just check resumes — we test problem-solving, communication, and cultural fit.",
+    icon: "shield" as const,
+  },
+  {
+    title: "Fast to Start",
+    description:
+      "Most teams are assembled and operational within 2 weeks. No months-long recruitment cycles, no drawn-out onboarding.",
+    icon: "bolt" as const,
+  },
+  {
+    title: "Cost Effective",
+    description:
+      "Access senior-level talent at a fraction of US market rates without sacrificing quality. Same skills, same output, better economics.",
+    icon: "coin" as const,
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Noova helped us scale our development team from 3 to 12 in under a month. The engineers they brought in were shipping production code in the first week.",
+    authorName: "Sarah Chen",
+    authorRole: "CTO",
+    company: "Linework",
+  },
+  {
+    quote:
+      "We needed React and Node developers who could work with our San Francisco team. Noova delivered exactly that — same timezone, great communication, zero friction.",
+    authorName: "Marcus Alvarez",
+    authorRole: "VP of Engineering",
+    company: "Stackfield",
+  },
+  {
+    quote:
+      "Comerciafy changed how we handle sales on Instagram. We went from losing leads in DMs to converting them automatically. It's like having a sales rep that never sleeps.",
+    authorName: "Camila Rojas",
+    authorRole: "Founder",
+    company: "Boutique Mariposa",
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title={title} description={description}>
+  <Hero
+    eyebrow="IT Outsourcing · AI Services"
+    headline="Your tech team, without the hiring headache."
+    subheadline="We connect US companies with top-tier Latin American tech talent. Dedicated developers, designers, and engineers who integrate into your workflow from day one."
+    primaryCta={{ label: "Build Your Team", href: "/contact" }}
+    secondaryCta={{ label: "Explore Comerciafy", href: "/comerciafy" }}
+  />
+
+  <section class="section" aria-labelledby="services-heading">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">What we do</span>
+        <h2 id="services-heading">Tech talent and smart tools to help you grow faster.</h2>
+      </header>
+
+      <div class="services-grid">
+        {services.map((service) => (
+          <ServiceCard {...service} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="why-noova-heading">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Why Noova</span>
+        <h2 id="why-noova-heading">Why companies choose Noova Solutions.</h2>
+      </header>
+
+      <div class="features-grid">
+        {features.map((feature) => (
+          <FeatureCard {...feature} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="trust-heading">
+    <div class="container">
+      <header class="section-header">
+        <span class="eyebrow">Social proof</span>
+        <h2 id="trust-heading">Trusted by growing companies across the Americas.</h2>
+      </header>
+
+      <div class="testimonials-grid">
+        {testimonials.map((t) => (
+          <TestimonialCard {...t} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTA
+    headline="Ready to build your dream team?"
+    subtext="Tell us what you need. We'll show you who's available."
+    cta={{ label: "Schedule a Call", href: "/contact" }}
+  />
+</BaseLayout>
+
+<style>
+  .section-header {
+    max-width: 720px;
+    margin: 0 0 var(--space-14);
+  }
+
+  .section-header h2 {
+    margin: 0;
+    color: var(--color-ink);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-10) var(--space-6);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+  }
+
+  @media (max-width: 960px) {
+    .services-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .services-grid, .testimonials-grid, .features-grid { grid-template-columns: 1fr; }
+  }
+</style>

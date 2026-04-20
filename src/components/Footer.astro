@@ -1,0 +1,140 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo-link" aria-label="Noova Solutions — Home">
+        <img
+          src="/brand/nova-spark-horizontal.svg"
+          alt="Noova Solutions"
+          width="160"
+          height="36"
+        />
+      </a>
+      <p>Tech talent and AI tools for growing businesses across the Americas.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/comerciafy">Comerciafy</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="mailto:hello@noovasolutions.com">hello@noovasolutions.com</a></li>
+        <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://x.com" target="_blank" rel="noopener">X</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© {year} Noova Solutions. All rights reserved.</p>
+    <ul class="footer-legal">
+      <li><a href="/privacy">Privacy Policy</a></li>
+      <li><a href="/terms">Terms of Service</a></li>
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: var(--color-shell);
+    border-top: 1px solid var(--color-line);
+    padding-top: var(--space-16);
+    margin-top: var(--space-22);
+  }
+
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+
+  .footer-brand p {
+    max-width: 34ch;
+    font-size: var(--fs-body);
+    color: var(--color-muted);
+    margin-top: var(--space-4);
+  }
+
+  .footer-logo-link {
+    display: inline-flex;
+  }
+
+  .footer-logo-link img { height: 36px; width: auto; }
+
+  .footer-col h4 {
+    font-size: var(--fs-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--color-muted);
+    margin-bottom: var(--space-5);
+    font-weight: 500;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .footer-col a {
+    color: var(--color-ink);
+    font-size: var(--fs-body);
+  }
+
+  .footer-col a:hover { color: var(--color-primary); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    padding-block: var(--space-6);
+    border-top: 1px solid var(--color-line);
+  }
+
+  .footer-bottom p {
+    font-size: var(--fs-meta);
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  .footer-legal {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--space-6);
+  }
+
+  .footer-legal a {
+    font-size: var(--fs-meta);
+    color: var(--color-muted);
+  }
+
+  .footer-legal a:hover { color: var(--color-primary); }
+
+  @media (max-width: 720px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>

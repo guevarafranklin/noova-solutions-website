@@ -1,0 +1,88 @@
+---
+interface Props {
+  quote: string;
+  authorName: string;
+  authorRole: string;
+  company: string;
+}
+
+const { quote, authorName, authorRole, company } = Astro.props;
+const initials = authorName
+  .split(" ")
+  .map((n) => n[0])
+  .slice(0, 2)
+  .join("")
+  .toUpperCase();
+---
+
+<figure class="testimonial">
+  <blockquote>&ldquo;{quote}&rdquo;</blockquote>
+
+  <figcaption>
+    <span class="avatar" aria-hidden="true">{initials}</span>
+    <span class="attribution">
+      <strong>{authorName}</strong>
+      <span>{authorRole}, {company}</span>
+    </span>
+  </figcaption>
+</figure>
+
+<style>
+  .testimonial {
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    background-color: var(--color-paper);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-card);
+    height: 100%;
+    margin: 0;
+  }
+
+  blockquote {
+    font-size: var(--fs-body-lg);
+    line-height: 1.6;
+    color: var(--color-ink);
+    margin: 0 0 var(--space-6);
+    flex: 1;
+  }
+
+  figcaption {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-line);
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-primary);
+    color: var(--color-paper);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: var(--fs-body);
+    box-shadow: var(--shadow-avatar);
+  }
+
+  .attribution {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--fs-body);
+  }
+
+  .attribution strong {
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  .attribution span {
+    color: var(--color-muted);
+    font-size: var(--fs-meta);
+  }
+</style>

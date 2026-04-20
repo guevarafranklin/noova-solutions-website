@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 64 64" fill="none" aria-label="Noova Spark Reversed">
+  <rect width="64" height="64" fill="#C75D3E"></rect>
+  <path d="M8 52 L18 44 L28 46 L38 38" stroke="#FFE7D3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85"></path>
+  <circle cx="8" cy="52" r="2.2" fill="#FFE7D3" opacity="0.85"></circle>
+  <path d="M44 10 L47.2 22.8 L60 26 L47.2 29.2 L44 42 L40.8 29.2 L28 26 L40.8 22.8 Z" fill="#FBF7F2"></path>
+</svg>

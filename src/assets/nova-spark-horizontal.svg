@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="140" viewBox="0 0 640 140" fill="none" font-family="&#39;Space Grotesk&#39;,&#39;Helvetica Neue&#39;,Helvetica,Arial,sans-serif">
+  
+  <g transform="translate(20,38) scale(1.0625)">
+    <path d="M8 52 L18 44 L28 46 L38 38" stroke="#E89B6B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.75"></path>
+    <circle cx="8" cy="52" r="2.2" fill="#E89B6B" opacity="0.75"></circle>
+    <path d="M44 10 L47.2 22.8 L60 26 L47.2 29.2 L44 42 L40.8 29.2 L28 26 L40.8 22.8 Z" fill="#C75D3E"></path>
+  </g>
+  
+  <text x="110" y="78" font-size="44" font-weight="600" letter-spacing="-0.88" fill="#1C1612">Noova</text>
+  <text x="262" y="78" font-size="40" font-weight="400" letter-spacing="-0.8" fill="#7A6E66">Solutions</text>
+</svg>
